@@ -9,10 +9,12 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.springframework.util.MimeTypeUtils.APPLICATION_JSON_VALUE;
+import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
+
 
 @RestController
-@RequestMapping("/v1/task")
+@RequestMapping("/v1/task/")
+@CrossOrigin(origins = "*")
 public class TaskController {
     @Autowired
     private DbService service;
