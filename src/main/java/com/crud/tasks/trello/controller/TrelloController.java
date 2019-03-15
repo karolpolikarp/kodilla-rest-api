@@ -17,11 +17,11 @@ import java.util.List;
 public class TrelloController {
 
     @Autowired
-    TrelloClient trelloService;
+    TrelloService trelloService;
 
     @RequestMapping(method = RequestMethod.GET, value = "/getTrelloBoards")
     public List<TrelloBoardDto> getTrelloBoards() {
-        return trelloService.getTrelloBoards();
+        return trelloService.fetchTrelloBoards();
 
 //        List<TrelloBoardDto> trelloBoards = trelloClient.getTrelloBoards();
 //
@@ -49,6 +49,6 @@ public class TrelloController {
     @RequestMapping(method = RequestMethod.POST, value = "/createTrelloCard")
     public CreatedTrelloCard createTrelloCard(@RequestBody TrelloCardDto trelloCardDto) {
 
-        return trelloService.createNewCard(trelloCardDto);
+        return trelloService.createdTrelloCard(trelloCardDto);
     }
 }
