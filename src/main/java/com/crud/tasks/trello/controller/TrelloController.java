@@ -48,7 +48,6 @@ public class TrelloController {
 
     @RequestMapping(method = RequestMethod.POST, value = "createTrelloCard")
     public CreatedTrelloCard createTrelloCard(@RequestBody TrelloCardDto trelloCardDto) {
-
-        return trelloService.createdTrelloCard(trelloCardDto);
+        return trelloService.createTrelloCard(trelloCardDto);
     }
 }
