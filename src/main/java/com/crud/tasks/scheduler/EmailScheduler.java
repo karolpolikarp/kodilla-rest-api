@@ -20,17 +20,17 @@ public class EmailScheduler {
     @Autowired
     private AdminConfig adminConfig;
 
-    private static final String SUBJECT = "+48 51X 7X7 553";
+    private static final String SUBJECT = "Task a day";
 
 //    @Scheduled(cron = "0 0 10 * * *")
-    @Scheduled(fixedDelay = 1000)
+    @Scheduled(fixedDelay = 10000)
     public void sendInformationEmail() {
         long size = taskRepository.count();
         String taskOrTasks = (size != 1) ? "tasks" : "task";
         simpleEmailService.send(new Mail(
                 adminConfig.getAdminMail(),
                 SUBJECT,
-                "pozdrawiamy [{xHHb22}]",
+                "Currently in database you've got: " + size + "" + taskOrTasks,
                 null
         ));
     }
