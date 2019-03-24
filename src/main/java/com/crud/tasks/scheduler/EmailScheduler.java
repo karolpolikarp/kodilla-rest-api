@@ -20,7 +20,7 @@ public class EmailScheduler {
     @Autowired
     private AdminConfig adminConfig;
 
-    private static final String SUBJECT = "jestes zhakowany";
+    private static final String SUBJECT = "Tasks: Once a day email";
 
 //    @Scheduled(cron = "0 0 10 * * *")
     @Scheduled(fixedDelay = 1000)
@@ -28,10 +28,9 @@ public class EmailScheduler {
         long size = taskRepository.count();
         String taskOrTasks = (size != 1) ? "tasks" : "task";
         simpleEmailService.send(new Mail(
-                "karol.frak@wp.pl"
+                adminConfig.getAdminMail(),
                 SUBJECT,
-                "karol to gej";
-//                "Currently in database you've got: " + size + "" + taskOrTasks,
+                "Currently in database you've got: " + size + "" + taskOrTasks,
                 null
         ));
     }
