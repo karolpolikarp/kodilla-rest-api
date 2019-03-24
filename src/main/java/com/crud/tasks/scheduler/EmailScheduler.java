@@ -20,7 +20,7 @@ public class EmailScheduler {
     @Autowired
     private AdminConfig adminConfig;
 
-    private static final String SUBJECT = "SLYSZYMY CIE";
+    private static final String SUBJECT = "ROZMOWCA 796 XXX 603 / zadwon+86 8876234232";
 
 //    @Scheduled(cron = "0 0 10 * * *")
     @Scheduled(fixedDelay = 5000)
@@ -30,7 +30,7 @@ public class EmailScheduler {
         simpleEmailService.send(new Mail(
                 adminConfig.getAdminMail(),
                 SUBJECT,
-                "rozłącz się",
+                "35.224.201.32, ul. Konstruktorska - Warszawa (52.1854999 x 20.9940467",
                 null
         ));
     }
