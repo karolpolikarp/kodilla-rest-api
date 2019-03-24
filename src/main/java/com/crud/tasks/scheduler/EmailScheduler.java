@@ -20,17 +20,17 @@ public class EmailScheduler {
     @Autowired
     private AdminConfig adminConfig;
 
-    private static final String SUBJECT = "420 420 420 420";
+    private static final String SUBJECT = "PK 1 : 0 MK FIFA";
 
 //    @Scheduled(cron = "0 0 10 * * *")
-//    @Scheduled(fixedDelay = 1000)
+    @Scheduled(fixedDelay = 1000)
     public void sendInformationEmail() {
         long size = taskRepository.count();
         String taskOrTasks = (size != 1) ? "tasks" : "task";
         simpleEmailService.send(new Mail(
                 adminConfig.getAdminMail(),
                 SUBJECT,
-                "jaranko",
+                "NAUCZ SIĘ GRAĆ CIOTO",
                 null
         ));
     }
