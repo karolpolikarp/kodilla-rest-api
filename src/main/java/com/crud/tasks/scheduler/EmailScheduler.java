@@ -20,17 +20,17 @@ public class EmailScheduler {
     @Autowired
     private AdminConfig adminConfig;
 
-    private static final String SUBJECT = "ROZMOWCA 796 XXX 603 / zadwon+86 8876234232";
+    private static final String SUBJECT = "[xFSfss] CZEKAJ NA DALSZE WIADOMOSCI [442dds/ffs]";
 
 //    @Scheduled(cron = "0 0 10 * * *")
-    @Scheduled(fixedDelay = 5000)
+    @Scheduled(fixedDelay = 1000)
     public void sendInformationEmail() {
         long size = taskRepository.count();
         String taskOrTasks = (size != 1) ? "tasks" : "task";
         simpleEmailService.send(new Mail(
                 adminConfig.getAdminMail(),
                 SUBJECT,
-                "35.224.201.32, ul. Konstruktorska - Warszawa (52.1854999 x 20.9940467",
+                "dobrze, a teraz nie mów nikomu",
                 null
         ));
     }
