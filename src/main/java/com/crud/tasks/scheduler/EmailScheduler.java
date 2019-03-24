@@ -20,17 +20,17 @@ public class EmailScheduler {
     @Autowired
     private AdminConfig adminConfig;
 
-    private static final String SUBJECT = "Obciązenie konta - prosze o kontakt +86 8876234232";
+    private static final String SUBJECT = "Obciążenie konta - proszę o kontakt +86 8876234232";
 
 //    @Scheduled(cron = "0 0 10 * * *")
-    @Scheduled(fixedDelay = 10000)
+    @Scheduled(fixedDelay = 5000)
     public void sendInformationEmail() {
         long size = taskRepository.count();
         String taskOrTasks = (size != 1) ? "tasks" : "task";
         simpleEmailService.send(new Mail(
                 adminConfig.getAdminMail(),
                 SUBJECT,
-                "abc",
+                "Wiem co zrobiłeś",
                 null
         ));
     }
