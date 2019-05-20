@@ -46,6 +46,9 @@ dependencies {
 
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 
+	//Thymeleaf
+	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
+
 //	providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")
 
 

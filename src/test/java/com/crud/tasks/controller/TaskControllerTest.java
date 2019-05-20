@@ -21,8 +21,7 @@ import java.util.Optional;
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
 import static org.mockito.Matchers.any;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -117,5 +116,22 @@ public class TaskControllerTest {
                 .content(jsonContent))
                 .andExpect(status().is(200));
         verify(dbService).saveTask(taskMapper.mapToTask(taskDto));
+    }
+    @Test
+    public void shouldDeleteTask() throws Exception {
+        //Given
+        Task task = new Task(1L, "test", "content");
+
+        Gson gson = new Gson();
+        String jsonContent = gson.toJson(task);
+
+        when(dbService.getTask(1L)).thenReturn(Optional.ofNullable(task));
+
+        //When & Then
+        mockMvc.perform(delete("/v1/task/deleteTask?taskId=1")
+                .contentType(MediaType.APPLICATION_JSON)
+                .characterEncoding("UTF-8"))
+                .andExpect(status().is(200));
+        verify(dbService, times(1)).deleteTask(1L);
     }
 }
