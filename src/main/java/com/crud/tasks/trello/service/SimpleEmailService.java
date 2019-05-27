@@ -30,8 +30,7 @@ public class SimpleEmailService {
         LOGGER.info("Starting email preparation...");
 
         try {
-            SimpleMailMessage mailMessage = createMailMessage(mail);
-            javaMailSender.send(mailMessage);
+            javaMailSender.send(createMimeMessage(mail));
 
             LOGGER.info("Email has been sent.");
 
