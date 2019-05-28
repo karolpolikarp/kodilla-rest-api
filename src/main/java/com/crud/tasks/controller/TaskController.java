@@ -12,7 +12,7 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @CrossOrigin(origins = "*")
 @RestController
-@RequestMapping("/v1/tasks")
+@RequestMapping("/v1/task")
 public class TaskController {
     @Autowired
     private DbService service;
